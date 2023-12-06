@@ -14,6 +14,6 @@ Result well be save in folder result
 How To Usage :
 
 ```
-python beelzebub.py
+python ngelist.py
 ```
 
