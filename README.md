@@ -3,13 +3,17 @@
 <img src="https://raw.githubusercontent.com/InMyMine7/NgelistMoment/main/listmoment.jpg"
 <br>
 https://youtu.be/2US3JdzuVis
-<H2>Requirement :</H2>
-Python v2.7.18
-<H2>How To Use</H2>
-just run ngelist.py<br>
+Requirement :
+
+- `Python 2.7.18`
+
+- `pip 19.2.3`
+- 
 Result well be save in folder result
-<br>
-<H2>Next Update</H2>
-In next update i will add rev ip
-<br>
+
+How To Usage :
+
+```
+python beelzebub.py
+```
 
