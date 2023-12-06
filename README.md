@@ -9,7 +9,7 @@ Requirement :
 - `Python 2.7.18`
 
 - `pip 19.2.3`
-- 
+
 Result well be save in folder result
 
 How To Usage :
