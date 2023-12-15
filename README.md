@@ -1,8 +1,7 @@
 <H1>NgelistMoment</H1>
 <br>
-<img src="https://raw.githubusercontent.com/InMyMine7/NgelistMoment/main/listmoment.jpg"
+<img src="https://raw.githubusercontent.com/InMyMine7/NgelistMoment/main/ngelistmoment.png"
 <br>
-https://youtu.be/2US3JdzuVis
 
 Requirement :
 
