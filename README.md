@@ -1,19 +1,29 @@
 <H1>NgelistMoment</H1>
 <br>
-<img src="https://raw.githubusercontent.com/InMyMine7/NgelistMoment/main/list.png"
+<img src="https://raw.githubusercontent.com/InMyMine7/NgelistMoment/refs/heads/main/v0.4.png"
 <br>
 
-Requirement :
+## Changelog v0.4
+- update from py2 to py3
+- add Domain Grabber By Keyword
+- add Domain Grabber Greensite
+- add Google Dorking
+- add Domain Grabber Onshopify
 
-- `Python 2.7.18`
+## Requirement :
 
-- `pip 19.2.3`
+- `Python 3.11.9`
+
+- `pip 24.1.1`
 
 Result well be save in folder result
 
-How To Usage :
+## Installation
+- `pip3 install -r requirements.txt`
+
+## How To Usage :
 
 ```
-python ngelist.py
+python3 ngelist.py
 ```
 
