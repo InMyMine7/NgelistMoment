@@ -1,19 +1,50 @@
-import requests, re, os, sys, codecs, random               
-from multiprocessing.dummy import Pool                          
-from time import time as timer  
+import requests
+import re
+import os
 import time
-from random import sample
-from colorama import Fore                               
-from colorama import Style                              
-from pprint import pprint                               
-from colorama import init
+from colorama import Fore, Style, init
 from urllib.parse import urlparse  # Python 3 change
-from googlesearch import search
-from lib.tools.utils import banner, list_grabber, clear
+import warnings
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
+warnings.simplefilter('ignore', InsecureRequestWarning)
 init(autoreset=True)
+
 year = time.strftime("%y")
 month = time.strftime("%m")
+os.system('cls' if os.name == 'nt' else 'clear')
+if not os.path.exists('Result'):
+    os.mkdir('Result')
+
+banner = '''
+\033[92m ____    ____    ___  _      ____ _____ ______  ___ ___   ___   ___ ___    ___  ____   ______ 
+|    \  /    |  /  _]| |    |    / ___/|      ||   |   | /   \ |   |   |  /  _]|    \ |      |
+|  _  ||   __| /  [_ | |     |  (   \_ |      || _   _ ||     || _   _ | /  [_ |  _  ||      |
+|  |  ||  |  ||    _]| |___  |  |\__  ||_|  |_||  \_/  ||  O  ||  \_/  ||    _]|  |  ||_|  |_|
+|  |  ||  |_ ||   [_ |     | |  |/  \ |  |  |  |   |   ||     ||   |   ||   [_ |  |  |  |  |  
+|  |  ||     ||     ||     | |  |\    |  |  |  |   |   ||     ||   |   ||     ||  |  |  |  |  
+|__|__||___,_||_____||_____||____|\___|  |__|  |___|___| \___/ |___|___||_____||__|__|  |__| v0.4 
+                                                                                              
+
+\033[97m[\033[92m Ngelist Moment \033[97m] Made By \033[92m'/Mine7\033[97m
+[ \033[92mgithub.com/InMyMine7 \033[97m||\033[92m t.me/InMyMineee \033[97m] \033[97m||\033[92m buymeacoffee.com/inmymine72 \033[97m]
+
+\033[97m[\033[92m+\033[97m] 1. Domain Grabber Azstats
+\033[97m[\033[92m+\033[97m] 2. Domain Grabber Bestwebsiterank
+\033[97m[\033[92m+\033[97m] 3. Domain Grabber Topmillion
+\033[97m[\033[92m+\033[97m] 4. Domain Grabber Dubdomain
+\033[97m[\033[92m+\033[97m] 5. Wordpress Domain Grabber
+\033[97m[\033[92m+\033[97m] 6. Wordpress Theme Grabber
+\033[97m[\033[92m+\033[97m] 7. Domain Grabber By Date v1 (\033[93m use vpn opsional \033[97m)
+\033[97m[\033[92m+\033[97m] 8. Domain Grabber By Date v2 (\033[93m use vpn opsional \033[97m)
+\033[97m[\033[92m+\033[97m] 9. Domain Grabber By Keyword
+\033[97m[\033[92m+\033[97m] 10. Domain Grabber Greensite
+\033[97m[\033[92m+\033[97m] 11. Google Dorking
+\033[97m[\033[92m+\033[97m] 12. Domain Grabber Onshopify
+'''
+print(banner)
+
+pilih = input('\033[97m[\033[92m~\033[97m] : ')
 
 def site1():
     try:
@@ -29,7 +60,7 @@ def site1():
                 cek = re.findall(r'style="margin-left: 0;">(.*?)</a>', req)
                 for xx in cek:
                     print('[\033[92m+\033[97m] https://' + xx)
-                    with open('Result/domain.txt', 'a') as f:
+                    with open('./result/domain.txt', 'a') as f:
                         f.write('https://' + xx + '\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -54,7 +85,7 @@ def site2():
                 for xx in cinta:
                     kamu = xx.replace("https://bestwebsiterank.com/", "")
                     print('[\033[92m+\033[97m] https://' + kamu)
-                    with open('Result/domain.txt', 'a') as f:
+                    with open('./result/domain.txt', 'a') as f:
                         f.write('https://' + kamu + '\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -76,7 +107,7 @@ def site3():
                 for xx in cinta:
                     kamu = xx.replace('?', '')
                     print('[\033[92m+\033[97m] https://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -98,7 +129,7 @@ def site4():
                 for xx in cinta:
                     kamu = xx.replace('https://www.google.com/s2/favicons?domain_url=', '')
                     print('[\033[92m+\033[97m] https://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -121,7 +152,7 @@ def site5():
                 for xx in cinta:
                     kamu = xx.replace("http://pluginu.com/", "")
                     print('[\033[92m+\033[97m] ttps://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -144,7 +175,7 @@ def site6():
                 for xx in cinta:
                     kamu = xx.replace("https://themetix.com/", "")
                     print('[\033[92m+\033[97m] https://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -162,7 +193,7 @@ def site7():
             for xx in cinta:
                 kamu = xx.replace('<li>', '').replace('</li>', '')
                 print('[\033[92m+\033[97m]  https://'+kamu)
-                with open('Result/domain.txt','a') as f:
+                with open('./result/domain.txt','a') as f:
                     f.write('https://'+kamu+'\n')
         else:
             print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -185,7 +216,7 @@ def site8():
                 for xx in cinta:
                     kamu = xx.replace("https://themetix.com/", "")
                     print('[\033[92m+\033[97m] https://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -203,7 +234,7 @@ def site9():
             for xx in cinta:
                 kamu = xx.replace('<li>', '').replace('</li>', '')
                 print('[\033[92m+\033[97m]  https://'+kamu)
-                with open('Result/domain.txt','a') as f:
+                with open('./result/domain.txt','a') as f:
                     f.write('https://'+kamu+'\n')
         else:
             print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -226,7 +257,7 @@ def site10():
                 for xx in cinta:
                     kamu = xx.replace("https://www.greensiteinfo.com/search/", "")
                     print('[\033[92m+\033[97m] ttps://'+kamu)
-                    with open('Result/domain.txt','a') as f:
+                    with open('./result/domain.txt','a') as f:
                         f.write('https://'+kamu+'\n')
             else:
                 print('\033[97m[\033[92m~\033[97m] Done Grabbing, Thanks For using our tools :)')
@@ -234,31 +265,32 @@ def site10():
     except Exception as e:
         print(f"Error: {e}")
         
-
 def dork_search(dork_query, num_results=10, delay=2):
     print(f"Searching with dork: {dork_query}\n")
-    file_path = "Result/dork_search.txt"
+    hasil = []
 
     try:
-        with open(file_path, "a", buffering=1) as file:  
-            for url in search(dork_query, num_results=num_results, sleep_interval=delay):
-                print('[\033[92m+\033[97m] ' + url)
-                file.write(url + "\n")
-                file.flush()  
+        for url in search(dork_query, num_results=num_results, sleep_interval=delay):
+            print('[\033[92m+\033[97m]' + url)
+            hasil.append(url)
 
     except Exception as e:
         print(f"There is an error: {e}")
+
+    return hasil
 
 def dork_main():
     dork = input("Enter Google Dork: ")
     jumlah = int(input("The number of results you want to retrieve: "))
     jeda = int(input("Delay between searches (seconds): "))
 
-    dork_search(dork, num_results=jumlah, delay=jeda)
+    hasil_dork = dork_search(dork, num_results=jumlah, delay=jeda)
 
-    print("\nResults are being saved in Result/dork_search.txt")
+    with open("Result/dork_search.txt", "w") as file:
+        for link in hasil_dork:
+            file.write(link + "\n")
 
-
+    print("\nResults have been saved in Result/dork_search.txt")
 
 def site12():
     try:
@@ -271,7 +303,7 @@ def site12():
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
         }
 
-        result_file = 'Result/domain.txt'
+        result_file = './result/domain.txt'
 
         for page in range(int(awalbertemu), int(terakhirbertemu) + 1):
             url = f"https://onshopify.com/domain-zone/{dom}/{page}"
@@ -305,38 +337,34 @@ def site12():
     except Exception as e:
         print(f'\033[91m[ERROR]\033[97m {e}')
 
-def digidaw():
-    clear()
-    print(banner)
-    print(list_grabber)
-    menu = input('\033[97m[\033[92m~\033[97m] : ')
+def Main():
     try:
-        if menu == '1':
+        if pilih == '1':
             site1()
-        if menu == '2':
+        if pilih == '2':
             site2()
-        if menu == '3':
+        if pilih == '3':
             site3()
-        if menu == '4':
+        if pilih == '4':
             site4()
-        if menu == '5':
+        if pilih == '5':
             site5() 
-        if menu == '6':
+        if pilih == '6':
             site6() 
-        if menu == '7':
+        if pilih == '7':
             site7()
-        if menu == '8':
+        if pilih == '8':
             site8()
-        if menu == '9':
+        if pilih == '9':
             site9()
-        if menu == '10':
+        if pilih == '10':
             site10()
-        if menu == '11':
+        if pilih == '11':
             dork_main()
-        if menu == '12':
+        if pilih == '12':
             site12()
     except:
         pass
     
 if __name__ == '__main__':
-    digidaw()
+    Main()
